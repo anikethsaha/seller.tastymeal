@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>Welcome to Tastymeal</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
+    <script src="/js/jquery-1.12.4.js"></script>
+  <script src="/js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/font.css" type="text/css" />
+    <link rel="stylesheet" href="/css/front.css" type="text/css" />
+    <link rel="stylesheet" href="/css/newStyle.css" type="text/css" />
+
+</head>
+<body>
+
+
+
+
+	<nav class="navbar navbar-default navbar-fixed-top" id="hidable">
+  <div class="top-head">
+    <div class="nav-div">
+      <span><a href="#">Vendor Registration</a></span>
+      <span><a href="/seller">Sell on TastyMeal </a></span>
+    </div>
+  </div>
+      <div class="container">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="logo" href="/"><img width="180px" height="60px " src="/images/logo.jpg"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+
+            <li ><a href="/"><i class="fa fa-home"></i><br>HOME </a></li>
+            <li><a onclick="redirectTotiffin()" data-toggle="modal" data-target="#locationSelector">
+              <i class="fa fa-cutlery"></i><br>TIFFIN SERVICE
+            </a>
+          </li>
+            <li><a href="#"><i class="fa fa-coffee"></i><br>INSTANT ORDER</a></li>
+            <!-- @if(Auth::check()) -->
+              <li><a onclick="onLogOutHandler()"><i class="fa fa-sign-out"></i><br>LOGOUT</a></li>
+              <li><a href="/cart"><i class="fa fa-shopping-cart"></i><br>MY MEALS(<span>{{Cart::count()}}</span>)</a></li>
+            <!-- @else -->
+
+              <li><a href="/login"><i class="fa fa-user"></i><br>LOGIN </a></li>
+              <li><a href="/register"><i class="fa fa-user-plus"></i><br>REGISTER </a></li>
+            <!-- @endif -->
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+

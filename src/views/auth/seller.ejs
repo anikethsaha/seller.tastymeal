@@ -1,0 +1,105 @@
+<% include layouts/header %>
+<div class="container-fluid bg-2">
+    <hr><hr><hr>
+    <div class="row">
+        <div class="seller-details">
+            <div class="seller-content">
+                <div class="seller-body">
+                    <div class="seller-head">
+                        <h1>Get Benefits</h1>
+                    </div>
+                    <div class="seller-text">
+                        <p>We don’t mix doctor’s software data with consumer data
+                            Practo platform uses physically separated infrastructure, protected by industry grade firewalls and a stringent privacy policy, to ensure that the data from Practo’s provider software is kept isolated from Practo’s consumer data.</p>
+                    </div>
+                </div>
+                <div class="seller-body">
+                    <div class="seller-head">
+                        <h1>Get Benefits</h1>
+                    </div>
+                    <div class="seller-text">
+                        <p>We don’t mix doctor’s software data with consumer data
+                            Practo platform uses physically separated infrastructure, protected by industry grade firewalls and a stringent privacy policy, to ensure that the data from Practo’s provider software is kept isolated from Practo’s consumer data.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="">
+            <div class="seller-login">
+
+                <div class="seller-login-head">
+                    <h3>
+                        Register
+                    </h3>
+                    <p>Already registered? <a href="/"> Login Here</a></p>
+                </div>
+                <div class="seller-login-body">
+                    <form class="form-horizontal" role="form" method="POST" action="/register/seller'">
+
+
+                        <div class="form-group">
+                            <label for="name" class="">Restaurant/Company Name</label>
+
+                            <div class="">
+                                <input id="name" type="text" class="form-control" name="name"  required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group}">
+                            <label for="email" class="">E-Mail Address</label>
+
+                            <div class="">
+                                <input id="email" type="email" class="form-control" name="email"  required>
+
+                            </div>
+                        </div>
+                        <div class="form-group}">
+                            <label for="email" class="">Address</label>
+
+                            <div class="">
+                                <textarea id="address" type="text" class="form-control" name="address" required>
+
+                                </textarea>
+
+                            </div>
+                        </div>
+                        <div class="form-group}}">
+                            <label for="mobile" class="">Enter Your Mobile Number</label>
+
+                            <div class="">
+                                <input id="mobile" type="mobile" class="form-control" name="mobile"  required>
+
+                            </div>
+                        </div>
+                        <div class="form-group" style="text-align:center;" >
+                            <label for="service">Select Service Area</label>
+                            <input type="text" placeholder="city" class="form-control" name="seller-location-city">
+                            <input type="text" placeholder="state" class="form-control" name="seller-location-state">
+                        </div>
+                        <div class="form-group" style="text-align:center;" >
+                            <label for="service">Tick the below</label>
+                            <p>Breakfast</p> <input type="checkbox" name="isBreakfast" >
+                            <p>Dinner</p><input type="checkbox" name="isDinner"  >
+                            <p>Launch</p><input type="checkbox" name="isLunch" >
+                        </div>
+                        <div class="form-group">
+                            <label for="password-confirm" class=""> Password</label>
+
+                            <div class="">
+                                <input id="password-confirm" type="password" class="form-control" name="password" required>
+                            </div>
+                        </div>
+                                <button type="submit" class="btn btn-primary">
+                                    Register
+                                </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+</script>
+<% include layouts/footer %>

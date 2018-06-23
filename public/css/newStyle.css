@@ -1,0 +1,458 @@
+html , body {
+  background-color: #f7f7f7;
+
+}
+a{
+    color: #97c34e;
+}
+.login-panel{
+     padding-bottom: 6em ;
+    border: 0;
+    border-radius: 0;
+    background: white;
+    width: 50%;
+    margin: auto;
+    box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.1);
+    /*  */
+
+}
+.vendor-login {
+    width: 110%;
+    margin-left: -5%;
+    background-image: url("/images/loginBack.jpg");
+    height: 6em;
+    background-origin: content-box;
+    background-position: unset;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    box-shadow : 0 20px 50px -20px rgba(0, 0, 0, 0.1);
+}
+.login-head h3{
+    font-size: 2.4em;
+    font-weight: 700;
+    color: #545454;
+    margin-bottom: 16px;
+
+}
+.login-head{
+    padding: 1em;
+    border: 0;
+    text-align: center;
+}
+.login-panel form{
+    padding: 2em;
+}
+.login-panel form div{
+    padding: 1em;
+}
+.login-panel label{
+    color: rgb(113, 113, 113);
+    padding: 0 1em;
+    font-size: 2em;
+    text-align: center;
+    width: 100%;
+}
+.login-panel form input ,.login-panel form select,.login-panel form option,.login-panel button ,.login-panel form textarea{
+    width: 100%;
+    padding: 8px 18px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    background: #FFF;
+    border: 1px solid #E5E5E4;
+    border-radius: 0;
+    outline: 0;
+    color: #000;
+    height: 44px;
+}
+.login-panel form option{
+    padding: 1em;
+}
+.login-panel form textarea{
+    height: auto;
+}
+.login-panel form input[type="checkbox"]{
+    width: auto;
+}
+.login-panel p{
+    color: rgb(113, 113, 113);
+    padding: 0 1em;
+    font-size: 2em;
+    text-align: center;
+    width: 100%;
+}
+.login-panel form input[type="submit"] ,.login-panel button[type="submit"]{
+    width: 30%;
+    margin: 1em;
+    font-size: 1em;
+    padding: .5em;
+    background: #8cbe38;
+    color: white;
+    border: 0;
+}
+.login-panel button[type="submit"]{
+    margin: 1em 35%;
+}
+.social-login-panel{
+    margin: auto;
+    padding: 0 3em;
+}
+.social-login-panel h4{
+    margin: 1em auto;
+    border-top: 2px solid rgba(0,0,0,.3);
+    padding: 1em 0;
+    text-align: center;
+    color: rgba(0,0,0,.5);
+}
+.fbBtn button{
+    background: #3b5999;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+    width: 85%;
+    font-size: 1em;
+    padding: .5em;
+    color: white;
+    border: 0;
+}
+.fbBtn span{
+    width: 4%;
+    padding: .6em;
+    background: #324e97;
+    color: white;
+}
+.fbBtn span strong {
+    font-size: 1.6em;
+}
+.social-login-head{
+    text-align: center;
+    font-size: 3em;
+    color: inherit;
+    font-weight: 600;
+}
+.facebookBtn{
+    float: right;
+    padding: 1em 3em;
+}
+.g-signin2{
+    padding: 1em 3em;
+    float: left;
+}
+.social-login-panel div div {
+    padding: 1em;
+}
+.top-head{
+    top: 0;
+    width: 100%;
+    background: #f7f7f7;
+    height: 26px;
+    padding: 5px 4%;
+    color: white;
+}
+.nav-div{
+    float: right;
+    white-space: nowrap;
+}
+.nav-div span a{
+    font-size: 1.2rem;
+    color: #828282;
+    text-decoration: none;
+    margin: 0 7px;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    line-height: 1.6rem;
+    display: inline-block;
+    vertical-align: top;
+}
+.nav-div span{
+    /* border-left: 2px solid #828282; */
+    /* margin: .5em; */
+}
+/* category.blade.php*/
+.category-container{
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: 1160px;
+    padding: 1em;
+    margin: auto;
+    background: white;
+    margin: 2em auto 4em;
+    box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.1);
+}
+.container-head{
+    border: none;
+    margin: calc(2rem - .05em) 0 1rem;
+    padding: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 600;
+    line-height: 1.1em;
+
+    text-transform: none;
+    color: #33373D;
+    margin-top: 0;
+}
+.container-head h2{
+    margin-top: 0;
+    text-align: center;
+}
+.container-body{
+    padding: 1em 2em;
+
+}
+.category-body{
+    width: 10%;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    vertical-align: top;
+    color: #33373d;
+    font-size: 1.2em;
+
+    margin: auto .28em;
+}
+.category-body img{
+    height: 6em;
+}
+.category-body span{
+    font-weight: 700;
+}
+.alignment-container{
+
+    margin: auto 5em;
+}
+
+/* end of category div */
+
+/* seller login  */
+.seller-details{
+    width: 100%;
+    float: left;
+    padding: 1em;
+    background: white;
+    margin: 1em;
+}
+.seller-content{
+    float: left;
+    width: 60%;
+}
+.seller-body{
+    padding: 1em;
+}
+.seller-text{
+    font-family: ClanPro-News, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 1.5em;
+}
+
+.seller-head{
+    font-weight: 700;
+    margin: 0 0 30px 0;
+    text-align: left;
+
+}
+.seller-login-head p{
+    font-family: ClanPro-News, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+.seller-login{
+    text-align: center;
+    float: right;
+    width: 30%;
+    padding: 2em;
+    position: absolute;
+    right: 5%;
+    overflow-y: auto;
+    background: #fff;
+    box-shadow: 0 4px 17px 0 rgba(0,0,0,0.1);
+    margin-right: 0px;
+}
+.seller-login-body input,.seller-login-body textarea,.seller-login-body select,.seller-login-body option{
+    border-radius: 0%;
+    width: 100%;
+}
+.seller-login-body input:hover ,.seller-login-body textarea:hover ,.seller-login-body select:hover,.seller-login-body option:hover{
+    border : 2px solid #97c34e;
+    box-shadow: none;
+}
+.seller-login-body input:focus ,.seller-login-body textarea:focus ,.seller-login-body select:focus,.seller-login-body option:focus{
+    border : 2px solid #97c34e;
+    box-shadow: none;
+}
+.seller-login-body button{
+    width: 100%;
+    font-size: 1em;
+    background: #8cbe38;
+    color: white;
+    border: 0;
+    border-radius: 0;
+}
+
+/* end of seller login page */
+/* location selector */
+.location-selector{
+    width: 70%;
+    margin: auto;
+    background: white;
+    margin-top: 1em;
+    background-color: #fff;
+    padding: 10px 0;
+    margin-bottom: 38px;
+    position: relative;
+    box-shadow: 0 3px 7px 0 rgba(0,0,0,.28);
+}
+.location-selector p{
+    font-size: 19px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 600;
+    padding: 0 .5em;
+}
+.location-selector input{
+    padding: .5em;
+    border: 1px solid #E0E0E0;
+    width: 60%;
+    margin: .5em auto;
+}
+.location-selector button{
+    border: 1px solid #43A422;
+    background: #43A422;
+    color: white;
+    padding: .5em;
+    font-family: ClanPro-Medium, Helvetica, sans-serif;
+    font-weight: 700;
+}
+.location-selector span{
+    z-index: 100;
+}
+/* end of location styling */
+/* start of filter bar styliing */
+.filter-nav{
+    background-color: #5e5e5e;
+    box-shadow: 0 9px 13px 0 rgba(0,0,0,.1);
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    top: 10%;
+    color: white;
+    font-weight: 700;
+    letter-spacing: .1em;
+    transition: .3s all ease-in-out;
+}
+.navbar.navbar-default.navbar-fixed-top{
+    transition: .3s all ease-in-out;
+}
+.filter-nav .alignment-container {
+    height: 100%;
+}
+.right-section{
+    float: right;
+
+    height: 100%;
+}
+.left-section{
+    float: left;
+
+    height: 100%;
+}
+.quick-offers{
+    padding: 1em 0;
+}
+.quick-offers a{
+    color: white;
+    letter-spacing: .1em;
+    font-size: 1.3em;
+    margin: auto .5em;
+}
+.filter-bar-content{
+    float: right;
+}
+/* filter ending styling */
+.product-content-div{
+    padding: 1em;
+}
+
+.social-btn{
+    width: 30%;
+    margin: 1em;
+    padding: 0;
+    margin: auto;
+}
+.social-btn a img{
+    margin: 1em auto;
+    box-shadow: 1px 1px 1px grey;
+    border: thin solid #888;
+}
+
+/* Mobile Responsive */
+@media (max-width: 500px) {
+    html,body ,bg-1,bg-2{
+        background: white;
+    }
+    .navbar-nav{
+        float: none;
+    }
+    .bg-2{
+        padding: 1em 0;
+        background: white;
+    }
+    .seller-details{
+        float: none;
+        width: 100%;
+    }
+    .category-body{
+        width: 100%;
+        margin: auto;
+    }
+    .seller-login{
+        width: 100%;
+        float: none;
+        padding: 3em;
+        position: relative;
+        right: 0;
+    }
+    .seller-content{
+        float: none;
+        width: 100%;
+    }
+    .container{
+        padding: 1em 0;
+    }
+    .navbar{
+        padding: 0;
+    width: 100%;
+    margin: 0;
+    }
+    .navbar-header{
+        width: 100%;
+    margin: auto;
+    }
+    .login-panel{
+        width: 90%;
+    }
+    #filter-container{
+        width: 100%;
+        float: none;
+        padding: 1em;
+        text-align: center;
+        max-width: none;
+    }
+    .alignment-container{
+        margin: 0;
+    }
+    .category-container{
+        margin: auto;
+    }
+    .bg-1{
+        width: 100%;
+    }
+    .location-selector{
+        width: 100%;
+    }
+    .filter-nav{
+        top:16%;
+    }
+}

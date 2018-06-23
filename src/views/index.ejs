@@ -1,0 +1,70 @@
+
+
+<% include layouts/header %>
+<% include layouts/mid %>
+<div class="container-fluid bg-2" >
+    <% include layouts/category %>
+       <div class="alignment-container">
+        <% include layouts/filter %>
+       <div class="vendor-container">
+       </div>
+    </div>
+</div>
+
+
+<script src="js/jquery-1.12.4.js"></script>
+
+<script type="text/javascript">
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+    }
+    });
+    var locations = {};
+    var vendors = {};
+
+    function getLocations(city){
+        $.ajax({
+            url : '/locations/'+city,
+            type : 'GET',
+            async: false,
+            dataType : 'json',
+            success : function(data){
+                locations = data;
+            }
+
+        });
+    }
+    function getVendors(location){
+        $.ajax({
+            url : '/vendors/'+location,
+            type : 'GET',
+            async : false,
+            dataType : 'json',
+            success: function(data){
+                vendors = data;
+            }
+        });
+    }
+    $(document).ready(function(){
+//
+        $('#city-select').on('change', function(){
+            $('#location-select').html('<option value="0">Select Locality</option>')
+            getLocations($('#city-select').val());
+            $.each(locations, function(key, value){
+                $('#location-select').append('<option value="'+value.id+'">'+value.name+'</option>');
+            });
+        });
+
+        $('#filter-location').on('click', function(){
+            $('.vendor-container').html('');
+            getVendors($('#location-select').val());
+            $.each(vendors, function(key, value){
+                $('.vendor-container').append('<div class="container-fluid vendor thumbnail"><a href="/menu"><h3>'+value.name+'</h3> <h4>'+value.email+'</h4></a><h5>Rating :5.00</h5></div>');
+            });
+        });
+    });
+</script>
+
+
+<% include layouts/footer %>

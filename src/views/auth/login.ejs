@@ -1,0 +1,63 @@
+
+<% include layouts/header %>
+<style>
+
+</style>
+<hr><hr><hr>
+<section class=" wrapper-md animated fadeInUp">
+    <div class="container-fluid bg-2 aside-xxl">
+        <div class="">
+        <section class="login-panel ">
+        <div class="vendor-login"></div>
+            <header  class=" login-head">
+                <h3 >Welcome to Tastymeal User Login</h3>
+            </header>
+
+
+
+    <form method="POST" action= "/login"  class="panel-body wrapper-lg">
+
+<!--
+            @if($errors)
+                @foreach ($errors->all() as $message)
+                    <div class="alert alert-danger alert-dismissible fade in">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Error!</strong> {{ $message }}
+                    </div>
+                @endforeach
+            @endif
+-->
+
+            <div class="">
+                <label class="control-label">Mobile Number</label>
+
+                <input type="text" name="mobile" placeholder="Enter your 10 digit mobile no." >
+            </div>
+            <div class="">
+                <label class="control-label">Password</label>
+                <input type="password" name="password"placeholder="password" >
+            </div>
+
+            <button  type="submit">Sign IN</button>
+                </form>
+            <h3 class="social-login-head">Or You Can Be Social</h3>
+                <div class="social-btn">
+                    <a href="/auth/facebook">
+                        <img src="/images/fb-btn.png" alt="">
+                    </a>
+                    <a href="/auth/google">
+                        <img src="/images/google-btn.png" alt="">
+                    </a>
+                </div>
+
+        </section>
+
+    </div>
+
+    <script>
+
+    </script>
+    </div>
+</section>
+
+<% include layouts/footer %>
