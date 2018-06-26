@@ -91,7 +91,7 @@ html,body{
 }
 .submenu-resource , .submenu-service{
    display: none;
-    width: 9em;
+    width: 13em;
     background: white;
     padding: 1em;
 
@@ -417,6 +417,50 @@ thead th {
 
 
 
+/* start of service page */
+
+.sub-title{
+    font-size: 1.8em;
+    font-weight: 400;
+    color: #5a5a5a;
+}
+.para {
+    font-size: 1.3em;
+    font-weight: 100;
+}
+.para span{
+    font-weight: 600
+}
+.box-title{
+    width: 6em;
+    border: 2px solid;
+    text-align: center;
+}
+
+.advertising-space{
+    background-color: #dcdcdc;
+    padding: 1em;
+    height: auto;
+    border-radius: 4px;
+
+
+}
+.inner-space-adv{
+    border: 2px dotted;
+    border-radius: 4px;
+    height: 100%;
+}
+.inner-space-adv h1{
+    text-align: center;
+    font-size: 3em;
+}
+
+.s-delivery span{
+    font-size: 1.1em;
+    font-weight: 600;
+    letter-spacing: .1em;
+}
+/* end of service page */
 
 /* footer */
 

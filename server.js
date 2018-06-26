@@ -9,7 +9,7 @@ const { port , sessionSecretKey} = require('./configs/config')
 const path  = require('path')
 var csrf = require('csurf');
 var RateLimit = require('express-rate-limit')
-var{ authRoutes,resourceRoutes }= require('./src/routes')
+var{ authRoutes,resourceRoutes ,serviceRoutes}= require('./src/routes')
 
 // M
 // Middlewares
@@ -65,6 +65,7 @@ app.get('/',(req,res) => {
     res.render('index');
 })
 app.use('/resource',resourceRoutes);
+app.use('/service',serviceRoutes);
 app.use('/seller/auth',authRoutes);
 app.get('/faq',(req,res) => {
   res.render('faq');
