@@ -1,0 +1,430 @@
+html,body{
+    background-color: #f3f7f8;
+}
+*{
+    color: #4a4a4a;
+}
+.center-container{
+    background-color: white;
+    padding: 1em;
+    margin: 1em auto;
+}
+
+.logo{
+    width: 100%;
+    height: 70px;
+
+}
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+.navbar{
+    padding: 0px;
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    box-shadow: 2px 4px 10px rgba(0,0,0,.2);
+}
+.nav-link{
+    vertical-align: middle;
+    float: right;
+    line-height: 70px;
+}
+.nav-link a{
+    cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    font-size: 1em;
+    /* color: #869bee; */
+    color: #676767;
+    margin: auto 1em;
+    overflow: visible;
+    text-decoration: none;
+    font-weight: 600;
+}
+.menu-icon{
+    display: none;
+}
+@media (max-width: 580px) {
+        #response-menu{
+            display: none;
+            background-color: white;
+        }
+        #response-menu.menu-open{
+            display: block;
+        }
+        .menu-icon{
+            width: 10%;
+            float: right;
+            margin: 1em 1em 0;
+            display: block;
+        }
+        .menu-icon img{
+            width: 100%;
+
+        }
+        .logo{
+           float: left;
+            width: 50%
+        }
+}
+
+/* end of navbar */
+
+/* start of submenu */
+.submenu{
+    position: absolute;
+    top: 70px;
+    right: 0;
+    z-index: 99;
+}
+.submenu-resource{
+    right: 5em;
+}
+.submenu-service{
+    right: 22em;
+}
+.submenu-resource , .submenu-service{
+   display: none;
+    width: 9em;
+    background: white;
+    padding: 1em;
+
+    position: fixed;
+    z-index: 2;
+    background-color: #fff;
+    white-space: nowrap;
+    box-shadow: 2px 4px 10px rgba(0,0,0,.2);
+}
+.submenu-resource ul  , .submenu-service ul{
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.submenu-resource a, .submenu-service a{
+    color: #676767;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 400;
+
+}
+.submenu-resource.sub-sh , .submenu-service.sub-sh{
+   display: block;
+}
+/* end of submenu */
+main{
+    margin-top: 70px;
+}
+.center{
+    height:35em;
+    width: 100%;
+}
+.img-center{
+    height: 25em;
+}
+.in-center-container{
+    position: absolute;
+    font-size: 1em;
+    left: 25%;
+    padding: 1em;
+    top: 5%;
+    font-weight: 600;
+    margin: auto;
+}
+.in-center-container button{
+    background: #869bee;
+    border-radius: 0;
+    color: white;
+    letter-spacing: .1em;
+    font-size: 1.2em;
+    font-weight: 600;
+    border: 0;
+}
+.in-center-container p{
+    font-size: 1.5em;
+}
+
+.img{
+    height: 100%;
+    width: 100%;
+}
+.img img{
+    height: 100%;
+    width: 100%;
+}
+.banner-center{
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    padding: 0em 0 3em;
+    margin: 1em auto;
+    height: 30em;
+}
+.banner-center h1{
+    text-align: center;
+    font-size: 40px;
+    color: #869bee;
+    margin-bottom: 0;
+    text-transform: capitalize;
+}
+.banner-center-content{
+    padding: 1em;
+    margin: 1em;
+}
+.reasons-banner{
+    width: 25%;
+    float: left;
+}
+.reasons-banner h3{
+    text-align: center;
+    color: #ffde03;
+}
+.reasons-banner p{
+    font-family: "Proxima Nova",sans-serif;
+    line-height: 1.71;
+    color: #869bee;
+    display: block;
+    font-size: 1.3em;
+    text-align: center;
+}
+.clear{
+    clear: both;
+}
+.reasons-banner div{
+    /* height: 10em; */
+    width: 100%;
+}
+.reasons-banner div img{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* how it works  */
+.how-it-works-container{
+    background-color: white;
+    padding: 2em;
+    margin: 3em auto 0;
+}
+.vertical-line{
+    height: 100%;
+    background: #869bee;
+    position: absolute;
+    width: 2px;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 4px auto;
+}
+.how-it-works-container div h1 , .content-title{
+    text-align: center;
+    color: #869bee;
+}
+.content-title{
+    font-size: 30px;
+    font-weight: 500;
+}
+.how-it-works-container .body{
+    height: 100%;
+    position: relative;
+}
+.body .content{
+    padding: 2em;
+    font-size: 1.3em;
+
+}
+.body .content img{
+    width: 75%;
+    height: 75%;
+    margin: auto;
+}
+.body .content span{
+    font-size: 1.5em;
+    display: block;
+    color: #869bee;
+    text-transform: capitalize;
+}
+.body .content ul li,.body .content p{
+    font-size: .7em;
+    color: #999;
+
+}
+.c-left{
+    text-align: right
+}
+.c-right{
+    text-align: left
+}
+@media (max-width: 580px) {
+    .banner-center{
+        height: 100%;
+    }
+
+    .c-left,.c-right{
+        float: none;
+    }
+    .banner-center-content{
+        padding: 0;
+    margin: 0;
+    width: 100%;
+    }
+    .center {
+        height: auto;
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
+    .body .content{
+        padding: 0;
+        text-align: center;
+        font-size: 1em;
+    }
+    .reasons-banner{
+        width: 100%;
+        float: none;
+    }
+    .vertical-line{
+        display:none;
+    }
+
+  }
+
+
+
+
+/* end of how it work  */
+
+/*  start of register */
+
+.registration-center{
+    width: 40%;
+    margin: auto;
+    background: white;
+    padding: 1em 2em;
+    text-align: center;
+}
+.registration-center h2{
+    font-size: 40px;
+    color: #636467;
+
+    padding: 0;
+}
+.registration-center form input,.registration-center form textarea{
+    margin: 1em auto;
+    border-radius: 0;
+    font-weight: 600;
+}
+.registration-center form input[type="submit"]{
+    background-color: #869bee;
+    color: white;
+    border: 0;
+    font-weight: 600;
+
+}
+@media (max-width: 580px) {
+    .registration-center{
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* end of register */
+
+
+/*  resource page */
+
+/* sub-menu-content */
+.option-center{
+    padding: 1em;
+    background: #4a4a4a;
+}
+.sub-content{
+    margin: auto;
+    width: 70%;
+}
+.sub-content a{
+    padding: 1em;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    letter-spacing: .1em;
+    margin: auto 1em;
+}
+.sub-content a:active{
+    color: #ffde03;
+}
+.center-container div{
+    padding: 1em;
+}
+
+@media (max-width: 580px) {
+    .sub-content{
+        margin: auto;
+        width: 100%;
+    }
+    .sub-content a{
+        margin: auto .5em;
+        width: 100%;
+        padding: 0;
+        font-size: 1em;
+    }
+}
+/* end of sub-menu-content */
+
+.benifits-c img{
+    width: 100%;
+    height: 100%;
+}
+.benifits-c p , .benifits-c h1,.success-stories-c p,.success-stories-c span{
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #676767;
+
+}
+.success-stories-c a{
+    text-decoration: none;
+    color: #ffde03;
+}
+.benifits-c h1{
+    font-size: 2em;
+
+}
+.pricing-c .pricing-free-images{
+    margin: auto;
+    width: 50%;
+}
+.pricing-table{
+    overflow: auto;
+}
+th,tr,thead,tbody,table {
+    padding: 1em;
+    font-weight: 400;
+    color: #676767;
+}
+thead th {
+    font-weight: 600;
+}
+
+
+/* end of recoource */
+
+
+
+
+/* footer */
+
+footer{
+    background-color: white;
+    padding: 1em;
+    margin-top: 2em;
+}
+
+
+/* end of footer */
