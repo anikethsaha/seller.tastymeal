@@ -455,10 +455,29 @@ thead th {
     font-size: 3em;
 }
 
-.s-delivery span{
+.s-delivery span , .para-bold{
     font-size: 1.1em;
     font-weight: 600;
     letter-spacing: .1em;
+}
+/* use c-sub-title with h2 */
+.c-sub-title{
+    text-align:center;
+    color: #0747a6;
+    font-size: 1.4em;
+}
+.c-para{
+    text-align: center;
+}
+.div-center{
+    width: max-content;
+    margin: auto;
+}
+.s-inventory img{
+    max-width: 7em;
+}
+button{
+    border-radius: 0%;
 }
 /* end of service page */
 
