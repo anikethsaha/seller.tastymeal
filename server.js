@@ -17,7 +17,7 @@ const sanitizeBody = require('express-validator/filter');
 const passport = require('passport');
 var passportStrategies = require('./configs/passport.config')
 //database connection
-mongoose.connect('mongodb://localhost/seller-tastymeal');
+mongoose.connect('mongodb://localhost/tastymeal');
 
 
 
