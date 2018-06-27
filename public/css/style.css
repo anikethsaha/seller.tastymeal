@@ -476,6 +476,20 @@ thead th {
 .s-inventory img{
     max-width: 7em;
 }
+.success-li{
+    color: lightgreen;
+    font-size: .9em;
+    list-style: none;
+    text-align: left;
+    font-weight: 600;
+}
+.error-li{
+    color: red;
+    font-size: .9em;
+    list-style: none;
+    text-align: left;
+    font-weight: 600;
+}
 button{
     border-radius: 0%;
 }

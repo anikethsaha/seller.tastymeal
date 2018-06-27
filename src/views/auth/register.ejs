@@ -4,19 +4,27 @@
     <div class="container">
         <div class="registration-center">
             <h2>Register Here</h2>
-            <span>Already Registered?<a href="">Login Here</a></span>
-            <form>
+            <% if(typeof errors !== 'undefined'){ %>
+                <ul>
+                  <% errors.forEach(err =>{ %>
+                      <li class="para error-li" ><%= err.msg %></li>
+                  <%  }) %>
+                </ul>
+             <% } %>
+             <% if(typeof successMessage !== 'undefined'){ %>
+                <ul>
+                      <li class="para success-li" ><%= successMessage %></li>
+                </ul>
+             <% } %>
+            <span>Already Registered?<a href="/seller/auth/login">Login Here</a></span>
+            <form action="/seller/auth/register" method="POST">
                 <input type="text" class="u-full-width"name="company_name" value="" placeholder="Company Name">
                 <input type="email" name="email" class="u-full-width" value="" placeholder="email address">
-                <label for="">Write two phone number</label>
-                <input type="tel" name="phone_no_1" class="u-full-width" value="" placeholder="write phone number">
-                <input type="tel" name="phone_no_2" class="u-full-width" value="" placeholder="write another one">
-                <label for="">Company Address</label>
-                <textarea rows="" cols="" class="u-full-width"></textarea>
-                <label for="">Delivery Pickup Address</label>
-                <span> Same as Company Address?</span>
-                <textarea rows="" cols="" class="u-full-width"></textarea>
-                <input type="password" name="password" class="u-full-width" value="" placeholder="password">
+                <input type="text" class="u-full-width"name="name" value="" placeholder="Name" >
+
+                <input type="tel" name="mobile" class="u-full-width" value="" placeholder="write phone number">
+
+               <input type="password" name="password" class="u-full-width" value="" placeholder="password">
                 <input type="submit" name="" value="Register">
             </form>
         </div>

@@ -1,0 +1,17 @@
+
+<% include layouts/header %>
+<main >
+    <div class="container">
+        <div class="registration-center">
+        <span class="para">Login Here</span>
+        <form action="/seller/auth/login" method="POST">
+                <input type="email" name="email" class="u-full-width" value="" placeholder="email address">
+                <input type="password" name="password" class="u-full-width" value="" placeholder="password">
+                <input type="submit" name="" value="Login">
+            </form>
+        </div>
+    </div>
+</main>
+
+
+<% include layouts/footer %>
