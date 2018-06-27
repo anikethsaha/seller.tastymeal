@@ -13,6 +13,8 @@ var RateLimit = require('express-rate-limit')
 const passport = require('passport');
 var passportStrategies = require('./configs/passport.config')
 const mongoose = require('mongoose');
+var expressValidator = require('express-validator');
+const sanitizeBody = require('express-validator/filter');
 const {
   authRoutes
 } = require('./src/routes')
@@ -36,7 +38,7 @@ app.use(session({
 // initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(csrf());
+// app.use(csrf());
 app.set('port', (process.env.PORT ||port));
 
 app.use(bodyParser.urlencoded({extended: true, limit: '50mb'}))
@@ -60,6 +62,8 @@ const logger = winston.createLogger({
       new winston.transports.File({ filename: './logs/combined.log' })
     ]
   });
+//validator
+app.use(expressValidator());
 
 // V
 // static files and views
@@ -104,7 +108,25 @@ app.get('/tiffin',isAuth,(req,res)=>{
 
 
 
+app.get('/regex/:str',(req,res) => {
+  const bstr = req.params.str;
+  var str = req.params.str;
+  var i ;
+  for(i=0;i < str.length;i++){
+     if(str.charAt(i) == '<')
+         str=str.replace(/str.charAt(i)/g,'&lt;');
+     if(str.charAt(i) == '>')
+         str=str.replace(/str.charAt(i)/g,'&gt;');
+    if(str.charAt(i) == '/' ){
+         str=str.replace(str.charAt(i),'');
+    }
 
+  }
+  const pattern1 = "[<]+\w+[>]";
+
+ res.send(bstr );
+
+})
 
 
 

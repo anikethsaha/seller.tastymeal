@@ -386,6 +386,20 @@ a{
     box-shadow: 1px 1px 1px grey;
     border: thin solid #888;
 }
+.success-li{
+    color: lightgreen;
+    font-size: .9em;
+    list-style: none;
+    text-align: left;
+    font-weight: 600;
+}
+.error-li{
+    color: red;
+    font-size: .9em;
+    list-style: none;
+    text-align: left;
+    font-weight: 600;
+}
 
 /* Mobile Responsive */
 @media (max-width: 500px) {

@@ -1,7 +1,7 @@
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const localStrategy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const { oauth } = require('./config');
 const {userMethods } = require('../src/controllers/auth')
 const { userModel } = require('../src/models')
@@ -36,4 +36,12 @@ passport.use(new GoogleStrategy({
   function(accessToken, refreshToken, profile, done) {
     userMethods.OauthCreateUser(profile,done);
   }
+));
+passport.use(new LocalStrategy({
+  usernameField: 'email',
+  passwordField: 'password'
+},
+function(username, password, done) {
+  userMethods.localLogin(username,password,done);
+}
 ));

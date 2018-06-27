@@ -2,7 +2,15 @@ const {userModel }= require('../../models')
 const bcrypt = require('bcrypt')
 const { check, validationResult ,body } = require('express-validator/check');
 const  { salt } = require('../../../configs/config')
+const makeid = () =>{
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
+    for (var i = 0; i < 8; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+  }
 
 
 module.exports = {
@@ -58,37 +66,98 @@ module.exports = {
         })
 
     },
-    register : (req,res) => {
-        const errors = validationResult(req);
+    register : async (req,res) => {
+        req.checkBody('email').trim();
+        req.checkBody('password').escape();
+        req.checkBody('mobile').trim();
+        req.checkBody('mobile').escape();
+        req.checkBody('password_confirmation').trim();
+        req.checkBody('password_confirmation').escape();
+        req.checkBody('name').trim();
+        req.checkBody('name').escape();
+
+        req.sanitizeBody('email');
+        req.sanitizeBody('password');
+        req.sanitizeBody('password_confirmation');
+        req.sanitizeBody('name');
+        req.sanitizeBody('mobile');
+        console.log('req.body :', req.body);
+        req.checkBody('mobile','enter the mobile correctly').notEmpty();
+        req.checkBody('email','enter the email correctly').isEmail();
+        req.checkBody('password_confirmation',"enter the correct cpmapanu name").isString().notEmpty();
+        req.checkBody('name',"please enter correct name").isString().notEmpty();
+        req.checkBody('password','enter the password correctly').notEmpty().isAlpha();
+        if(req.body.password != req.body.password_confirmation){
+           var PasswordMatchederrors ="Password not matched";
+            res.render('auth/register',{
+                PasswordMatchederrors
+            })
+        }
+        var errors = req.validationErrors();
+
+        console.log('errors :', errors);
+        console.log("inside register");
         if(errors){
+
             res.render('auth/register',{
                 errors
             })
-        }
-        const name = req.body.name;
-        const email = req.body.email;
-        const address = req.body.address;
-        const mobile = req.body.name;
-        const password = bcrypt.hashSync(req.body.password, salt);
-        new userModel({
-            name ,
-            mobile ,
-            address ,
-            password ,
-            email
-        }).save((errors,newuser) => {
-            if(errors){
-                res.render('auth/register',{
-                    errors
-                })
-            }
-            res.render('auth/login',{
-                message : "Your are registered ! please login now to continue "
+        }else{
+            const mobile = req.body.mobile;
+            const name = req.body.name;
+            const email = req.body.email;
+            const password = await bcrypt.hashSync(req.body.password,bcrypt.genSaltSync(10));
+            return  new userModel({
+                mobile,
+                email,
+                name,
+                password,
+                _oauthid :await makeid()
+            }).save((errors,newuser) => {
+                if(errors){
+                    res.render('auth/register',{
+                        MongoError : errors
+                    });
+                }else{
+                    res.redirect('/auth/login');
+                }
             })
+        }
 
-        });
+    },
+    localLogin : async (email,password,done) => {
+        await userModel.findOne({ email },async (err,verifiedEmailUser) => {
+            if(err) {
+                console.log('err 1st :', err);
+                done(null,false,{message : err});
+            }else{
+                if(!verifiedEmailUser) {
+                    console.log('email verification failed');
+                    done(null,false,{message:"no user found with this email"});
+                }else{
+                    console.log("email good");
+                    var UserPassword = verifiedEmailUser.password;
+                    console.log(password,UserPassword)
+                    await bcrypt.compare(password,UserPassword,(err,result) => {
+                        if(err) {
+                            console.log("err in compare",err)
+                            done(null,false,{message:err})
+                        }else{
+                            if(!result) {
+                                console.log("passsword fail")
+                                done(null,false,{message:"Password invalid"})
+                            }else{
+                                console.log("all good")
+                                done(null,verifiedEmailUser);
+                            }
 
+                        }
 
+                    })
+                }
+            }
+
+        })
     }
 
 }

@@ -6,7 +6,10 @@ const { check, validationResult,body  } = require('express-validator/check');
 
 // get login page
 router.get('/login',userMethods.showLogin);
-
+router.post('/login',passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/auth/login',
+    failureFlash: true }));
 router.get('/logout',userMethods.logout);
 
 // google
@@ -30,21 +33,8 @@ router.get('/facebook/callback',passport.authenticate('facebook', { failureRedir
 
 
 // Register
-router.get('/reg',userMethods.showRegistration);
-router.post('/register',[
-  body('name',"Please enter correct name")
-    .isEmail(),
-  body('mobile',"Please provide validate mobile number")
-    .isMobilePhone(),
-  body('address',"Please provide address min : 10 letters")
-    .isString()
-    .isLength({min : 10}),
-  body('password',"Minimum length 5")
-    .isLength({ min: 5 }),
-  body('password_confirmation',"passsword dosnt match")
-    .equals(req.body.password)
-  ],
-userMethods.register);
+router.get('/register',userMethods.showRegistration);
+router.post('/register',userMethods.register);
 
 
 
