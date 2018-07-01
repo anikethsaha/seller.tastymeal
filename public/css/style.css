@@ -46,6 +46,7 @@ html,body{
     overflow: visible;
     text-decoration: none;
     font-weight: 600;
+    padding: 0 1em;
 }
 .menu-icon{
     display: none;
@@ -135,6 +136,15 @@ main{
     top: 5%;
     font-weight: 600;
     margin: auto;
+}
+.btn{
+    background: #869bee;
+    border-radius: 0;
+    color: white;
+    letter-spacing: .1em;
+    font-size: 1.2em;
+    font-weight: 600;
+    border: 0;
 }
 .in-center-container button{
     background: #869bee;
@@ -278,7 +288,8 @@ main{
         width: 100%;
     }
     .container{
-        width: 100%;
+            width: 100%;
+            padding: 0;
     }
     .body .content{
         padding: 0;
@@ -342,17 +353,17 @@ main{
 /* sub-menu-content */
 .option-center{
     padding: 1em;
-    background: #4a4a4a;
+    background: white;
 }
 .sub-content{
     margin: auto;
-    width: 70%;
+    width: fit-content;
 }
 .sub-content a{
     padding: 1em;
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: 600;
-    color: white;
+
     text-decoration: none;
     letter-spacing: .1em;
     margin: auto 1em;
