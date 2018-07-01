@@ -109,6 +109,16 @@ app.get('/dashboard',isAuth,(req,res) => {
   console.log('req :', req.isAuthenticated());
   res.send("ok");
 })
+app.get('/sellWithUs',(req,res) => {
+  res.render('sellWithUs');
+})
+app.get('/store',(req,res) => {
+  res.render('store');
+})
+
+app.get('/advertise',(req,res) => {
+  res.render('advertise');
+})
 app.get('/faq',(req,res) => {
   res.render('faq');
 })
