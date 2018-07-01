@@ -1,5 +1,5 @@
 html{
-  background-color: #f7f7f7;
+  background-color: white;
 }
 .bg-1 {
 
@@ -16,10 +16,10 @@ html{
 .bg-2{
   /* background-image: url("/images/pattern.png");  */
   background-position: center;
-  background:#f7f7f7;
+  background:white;
   opacity: 1;
   padding-top: 20px;
-  padding-left: 20px;
+  padding-left: 40px;
   padding-right: 40px;
 
 }

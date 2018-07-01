@@ -29,6 +29,20 @@
     </script>
     <script type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8BrmWjoDYxC5k6PTRe4hPB4LyiFu6pq8&libraries=places&callback=activatePlacesSearch&region=IN"></script>
+<script>
 
+
+
+     $(document).on('scroll',(e)=>{
+         if( $(window).scrollTop() > 75 && $(window).innerWidth() > 500){
+             $('.navbar.navbar-default.navbar-fixed-top').css({'transform': 'translateY(-7em)'});
+
+         }else{
+            $('.navbar.navbar-default.navbar-fixed-top').css({'transform': 'translateY(0px)'});
+
+
+         }
+     })
+</script>
 </body>
 </html>

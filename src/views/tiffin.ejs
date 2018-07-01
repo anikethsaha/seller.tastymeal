@@ -1,15 +1,94 @@
 
 
 <% include layouts/header %>
-<% include layouts/topFilterBar %>
 
 
 
-<div class="alignment-container" style="padding:9em 0 ">
-    <div class="product-content-div">
-        <h1>product</h1>
-        <h2>hello 6E</h2>
+
+<div class="alignment-container" style="padding:3em 0 ">
+    <div class="col-md-12">
+        <div class="product-content-div">
+            <h1 class="heading g"><%= city %>,<%= state %></h1>
+            <h1 class="heading ">Found  <%= count %></h1>
+            <div class="row" id="loop">
+
+            </div>
+            <div class="row" id="dummy-t">
+
+                 <div class="col-md-3">
+                    <div class="product-details">
+                        <div class="dummy container"></div>
+                        <div class="dummy line"></div>
+                        <div class="dummy line"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product-details">
+                        <div class="dummy container"></div>
+                        <div class="dummy line"></div>
+                        <div class="dummy line"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product-details">
+                        <div class="dummy container"></div>
+                        <div class="dummy line"></div>
+                        <div class="dummy line"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="product-details">
+                        <div class="dummy container"></div>
+                        <div class="dummy line"></div>
+                        <div class="dummy line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
+
+<script>
+
+    $(window).load((e) => {
+         var count = 0;
+
+         tiffinFetch();
+
+    })
+
+
+    $(window).scroll((e) => {
+
+        if($(window).scrollTop() >= $(document).height() - $(window).height() - 10){
+            console.log("fetching" )
+            tiffinFetch();
+        }
+
+    })
+
+    function tiffinFetch(){
+            const city = '<%= city %>';
+            const state = '<%= state %>';
+            const totalProductAvailable = "<%= count %>";
+             count = count  + 4;
+            console.log(count);
+            if(totalProductAvailable == count){
+                $('#dummy-t').hide();
+            }else{
+                 $.ajax({
+                 url:"/tiffin/"+count+"/get/"+city+"/"+state,
+                 type:"get",
+                 dataType:"text",
+                 success : (res)=>{
+                     $("#loop").append(res);
+
+                 }
+                 })
+            }
+
+    }
+
+</script>
 <% include layouts/footer %>

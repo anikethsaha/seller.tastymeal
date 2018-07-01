@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const winston = require('winston')
 var expressControllers = require('express-controller');
-var session = require('express-session')
+const session = require('express-session')
 const cors = require('cors')
 const helmet = require('helmet')
 const { port , sessionSecretKey} = require('./configs/config')
@@ -15,8 +15,11 @@ var passportStrategies = require('./configs/passport.config')
 const mongoose = require('mongoose');
 var expressValidator = require('express-validator');
 const sanitizeBody = require('express-validator/filter');
+var cookieParser = require('cookie-parser')
+var flash = require('connect-flash');
 const {
-  authRoutes
+  authRoutes,
+  tiffinRoutes
 } = require('./src/routes')
 
 // M
@@ -28,21 +31,31 @@ mongoose.connect('mongodb://localhost/tastymeal');
 
 const app = express();
 app.use(helmet());
-// session Middleware
-app.use(session({
-    secret: sessionSecretKey,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-  }))
-// initialize passport
-app.use(passport.initialize());
-app.use(passport.session());
-// app.use(csrf());
-app.set('port', (process.env.PORT ||port));
 
 app.use(bodyParser.urlencoded({extended: true, limit: '50mb'}))
 app.use(bodyParser.json({limit: '50mb'}))
+
+app.use(cookieParser());
+
+app.use(session({
+  secret: sessionSecretKey,
+  resave: true,
+  saveUninitialized: true,
+}));
+  app.use(flash());
+
+  // initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// app.use(csrf());
+
+
+
+
+
+app.set('port', (process.env.PORT ||port));
+
 app.use(cors());
 // use this middleware in authentications routes or post method routes
 var authAPILimiter = new RateLimit({
@@ -71,11 +84,11 @@ app.use(express.static(path.join(__dirname, '/public')))
 app.set('view engine' , 'ejs');
 app.set('views', [path.join(__dirname, 'src/views'),
                   path.join(__dirname, 'src/views/layouts/')]);
-
+app.engine('html', require('ejs').renderFile);
 
 // custom middlewares
 // add isAuth middleware to protect any routes
-const {isAuth} = require('./src/middlewares')
+const {isAuth , notFound404} = require('./src/middlewares')
 
 
 // C
@@ -84,26 +97,28 @@ const {isAuth} = require('./src/middlewares')
 expressControllers.setDirectory(path.join(__dirname,'src/controller')).bind(app);
 
 
+app.use(function(req,res,next){
+  res.locals.user = req.user || null;
+  console.log('req.user local :', req.user);
+  next();
+})
+
+
+
+
 
 
 app.use('/auth',authRoutes);
-
+app.use('/tiffin',tiffinRoutes);
 app.get('/',(req,res) => {
+    console.log('req.user :', req.user);
+
   res.render('index');
 })
 
 app.get('/seller',(req,res)=>{
   res.render('auth/seller');
 })
-
-
-app.get('/tiffin',isAuth,(req,res)=>{
-   res.render('tiffin');
-
-})
-
-
-
 
 
 

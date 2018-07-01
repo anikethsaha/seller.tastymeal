@@ -110,7 +110,5 @@ function redirectTofood(){
 }
 function ChosseOption(){
     $('.forwarding-option').append(`
-    <p>Select Your Option</p>
-    <a onclick="redirectTotiffin()" id="food">Order Foods</a>
-    <a onclick="redirectTofood()" id="subscription">Tiffin Subscription</a>`);
+    <p class='g'>You Can Proceed Now</p>`);
 }

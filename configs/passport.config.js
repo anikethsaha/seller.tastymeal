@@ -5,10 +5,13 @@ const LocalStrategy = require('passport-local').Strategy;
 const { oauth } = require('./config');
 const {userMethods } = require('../src/controllers/auth')
 const { userModel } = require('../src/models')
+
+
+
 passport.serializeUser((user, done) => {
-    console.log('user :', user);
     console.log('serialize user :',user._id);
     done(null, user._id);
+    console.log("it is also calling!!");
 });
 
 passport.deserializeUser((_id, done) => {
@@ -17,7 +20,6 @@ passport.deserializeUser((_id, done) => {
         done(null, user);
     });
 });
-
 
 passport.use(new GoogleStrategy({
     clientID: oauth.GOOGLE_CLIENT_ID,

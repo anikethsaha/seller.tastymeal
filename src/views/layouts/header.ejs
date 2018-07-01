@@ -27,7 +27,7 @@
   <div class="top-head">
     <div class="nav-div">
       <span><a href="#">Vendor Registration</a></span>
-      <span><a href="/seller">Sell on TastyMeal </a></span>
+      <span><a href="http://localhost:5000/">Sell on TastyMeal </a></span>
     </div>
   </div>
       <div class="container">
@@ -46,24 +46,21 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
+              <li><a href="/cart" ><img src="/images/icon/boxes.svg" class="icon-svg h" alt=""><br>Cart</a></li>
+            <li ><a href="/"><img  class="icon-svg h"  src="/images/icon/house.svg" alt=""><br>HOME </a></li>
+            <% if(!user){ %>
+              <li><a href="/auth/login"><img  class="icon-svg h"  src="/images/icon/password.svg" alt=""><br>LOGIN </a></li>
+              <li><a href="/auth/register"><img  class="icon-svg h"  src="/images/icon/clipboard.svg" alt=""><br>REGISTER </a></li>
 
-            <li ><a href="/"><i class="fa fa-home"></i><br>HOME </a></li>
-            <li><a onclick="redirectTotiffin()" data-toggle="modal" data-target="#locationSelector">
-              <i class="fa fa-cutlery"></i><br>TIFFIN SERVICE
-            </a>
-          </li>
-            <li><a href="#"><i class="fa fa-coffee"></i><br>INSTANT ORDER</a></li>
-            <!-- @if(Auth::check()) -->
-              <li><a onclick="onLogOutHandler()"><i class="fa fa-sign-out"></i><br>LOGOUT</a></li>
-              <li><a href="/cart"><i class="fa fa-shopping-cart"></i><br>MY MEALS(<span>{{Cart::count()}}</span>)</a></li>
-            <!-- @else -->
-
-              <li><a href="/auth/login"><i class="fa fa-user"></i><br>LOGIN </a></li>
-              <li><a href="/auth/register"><i class="fa fa-user-plus"></i><br>REGISTER </a></li>
-            <!-- @endif -->
+           <% }else{ %>
+              <li><a onclick="onLogOutHandler()"><img  class="icon-svg h"  src="/images/icon/logout.svg" alt=""><br>LOGOUT</a></li>
+              <li><a ><img  class="icon-svg h"  src="/images/icon/man.svg" alt=""><br>PROFILE</a></li>
+            <% } %>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+    <hr><hr><hr>
+
 
 

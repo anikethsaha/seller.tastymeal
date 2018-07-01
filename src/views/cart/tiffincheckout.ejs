@@ -1,0 +1,106 @@
+
+<% include layouts/header %>
+
+<div class="container-fluid bg-2" >
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container-fluid ">
+                <div class="steps-indicator">
+                    <div class="col-md-2">
+                        <img  class="icon-svg h lp"  src="/images/icon/one.svg" alt="">
+                        <label class="mid-label step">Review</label>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="line-seperator"></span>
+                    </div>
+                     <div class="col-md-1">
+                        <label class="mid-label step inactive-step">Date </label>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="line-seperator"></span>
+                    </div>
+                    <div class="col-md-1">
+                        <label class="mid-label step inactive-step">Payment</label>
+                    </div>
+                    <div class="col-md-2">
+                        <span class="line-seperator"></span>
+                    </div>
+                    <div class="col-md-1">
+                        <label class="mid-label step inactive-step">Done</label>
+                    </div>
+                 </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+                <div class="cart-banner  m-d">
+                    <form class="usrdtafrm" action="#" >
+                    <h1 class="heading g">Please Review Your Details</h1>
+                    <div class="Addr-cart-selector">
+                        <h3 class="sub-heading xl">Your Address</h3>
+                        <br/>
+                            <span class="small-para fw">Area</span>
+                        <br/>
+                                <input required type="text" class="addr-area inpt para" />
+                        <br/>
+                            <span class="small-para fw">City</span>
+                        <br/>
+                                <input required type="text" class="addr-city inpt para" />
+                        <br/>
+                            <span class="small-para fw">State</span>
+                        <br/>
+                                <input required type="text" class="addr-state inpt para" />
+                        <br/>
+                            <span class="small-para fw">Full Address</span>
+                        <br/>
+                        <br/>
+                                <textarea required class="addr-whole para inpt" ></textarea>
+
+
+                        <p class="small-para">Please Write new address if you Want to change</p>
+
+                    </div>
+                    <div class="Addr-cart-selector">
+                    <h3 class="sub-heading xl">Your Phone</h3>
+                        <input type="number" required class="ph inpt para" />
+                    </div>
+                    <button class="btn-g usrdtachkout-btn"  type="submit">Confirm</button>
+                    </form>
+                </div>
+        </div>
+        <div class="col-md-4">
+            <div class="product-details mp-c">
+                <h1 class="sub-heading g tc">Product details</h1>
+                    <div class="mid-img-container">
+                        <img src="/images/howitworks.png"  alt="">
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(window).load((e)=>{
+        if(localStorage.getItem('UserAddress') !== 'undefined'){
+            console.log("address present");
+            $('.addr-area').val(localStorage.getItem('userArea'));
+            $('.addr-city').val(localStorage.getItem('userCity'));
+            $('.addr-state').val(localStorage.getItem('userState'));
+            $('.addr-whole').val(localStorage.getItem('UserAddress'));
+        }
+    })
+    $('.usrdtafrm').submit(async (e)=>{
+        e.preventDefault();
+        $('.usrdtachkout-btn').html('....');
+        console.log(e);
+        await localStorage.setItem('chkoutdtaUserarea',$('.addr-area').val());
+        await localStorage.setItem('chkoutdtaUsercity',$('.addr-city').val());
+        await localStorage.setItem('chkoutdtaUserstate',$('.addr-state').val());
+        await localStorage.setItem('chkoutdtaUserfull',$('.addr-whole').val());
+        await localStorage.setItem('chkoutdtaUsermobile',$('.ph').val());
+        $('.usrdtachkout-btn').hide();
+    })
+
+</script>
+<% include layouts/footer %>

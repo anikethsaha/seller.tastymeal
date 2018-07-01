@@ -1,5 +1,6 @@
 const {userModel }= require('../../models')
 const bcrypt = require('bcrypt')
+const session = require('express-session')
 const { check, validationResult ,body } = require('express-validator/check');
 const  { salt } = require('../../../configs/config')
 const makeid = () =>{
@@ -126,9 +127,10 @@ module.exports = {
 
     },
     localLogin : async (email,password,done) => {
+        console.log('email :', email);
         await userModel.findOne({ email },async (err,verifiedEmailUser) => {
             if(err) {
-                console.log('err 1st :', err);
+                console.log('err 1st :');
                 done(null,false,{message : err});
             }else{
                 if(!verifiedEmailUser) {
@@ -137,10 +139,9 @@ module.exports = {
                 }else{
                     console.log("email good");
                     var UserPassword = verifiedEmailUser.password;
-                    console.log(password,UserPassword)
                     await bcrypt.compare(password,UserPassword,(err,result) => {
                         if(err) {
-                            console.log("err in compare",err)
+                            console.log("err in compare")
                             done(null,false,{message:err})
                         }else{
                             if(!result) {

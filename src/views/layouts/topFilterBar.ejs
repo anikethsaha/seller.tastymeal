@@ -22,20 +22,3 @@
         </div>
     </div>
 </div>
-<script>
-
-     $('.top-head').hide();
-
-     $(document).on('scroll',(e)=>{
-         if( $(window).scrollTop() > 75 && $(window).innerWidth() > 500){
-             $('.navbar.navbar-default.navbar-fixed-top').css({'transform': 'translateY(-5em)'});
-                $('.filter-nav').css({'top':'0'});
-         }else{
-            $('.navbar.navbar-default.navbar-fixed-top').css({'transform': 'translateY(0px)'});
-            if($(window).innerWidth() > 500){
-                $('.filter-nav').css({'top':'10%'});
-            }
-
-         }
-     })
-</script>
