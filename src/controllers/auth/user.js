@@ -1,6 +1,7 @@
 const {userModel }= require('../../models')
 const bcrypt = require('bcrypt')
 const session = require('express-session')
+var owasp = require('owasp-password-strength-test');
 const { check, validationResult ,body } = require('express-validator/check');
 const  { salt } = require('../../../configs/config')
 const makeid = () =>{
@@ -85,13 +86,22 @@ module.exports = {
         console.log('req.body :', req.body);
         req.checkBody('mobile','enter the mobile correctly').notEmpty();
         req.checkBody('email','enter the email correctly').isEmail();
-        req.checkBody('password_confirmation',"enter the correct cpmapanu name").isString().notEmpty();
+        req.checkBody('password_confirmation',"enter the password correctly").isString().notEmpty();
         req.checkBody('name',"please enter correct name").isString().notEmpty();
         req.checkBody('password','enter the password correctly').notEmpty().isAlpha();
         if(req.body.password != req.body.password_confirmation){
            var PasswordMatchederrors ="Password not matched";
             res.render('auth/register',{
                 PasswordMatchederrors
+            })
+        }
+        const passwordResult = owasp.test(req.body.password);
+        console.log('passwordResult :', passwordResult);
+        if(!passwordResult.strong){
+            res.render('auth/register',{
+                errors : passwordResult.errors,
+                requiredTestErrors  : passwordResult.requiredTestErrors,
+                optionalTestErrors   : passwordResult.optionalTestErrors
             })
         }
         var errors = req.validationErrors();
@@ -117,10 +127,12 @@ module.exports = {
             }).save((errors,newuser) => {
                 if(errors){
                     res.render('auth/register',{
-                        MongoError : errors
+                         errors
                     });
                 }else{
-                    res.redirect('/auth/login');
+                    res.render('auth/register',{
+                        successMessage : "registration complete.Please login now"
+                    });
                 }
             })
         }
