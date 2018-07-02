@@ -1,27 +1,46 @@
 <% include layouts/header %>
 <div class="container-fluid bg-2">
-    <hr><hr><hr>
-    <div class="row">
+       <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                  <% if(typeof errors !== 'undefined'){ %>
                     <ul>
-                    <% errors.forEach(err =>{ %>
+                    <% Object.keys(errors).forEach(err =>{ %>
                         <li class="para error-li" ><%= err.msg %></li>
                     <%  }) %>
                     </ul>
                 <% } %>
+                <br>
                 <% if(typeof successMessage !== 'undefined'){ %>
                     <ul>
                         <li class="para success-li" ><%= successMessage %></li>
                     </ul>
                 <% } %>
+                <br>
                 <% if(typeof PasswordMatchederrors !== 'undefined'){ %>
                     <ul>
                         <li class="para error-li" ><%= PasswordMatchederrors %></li>
                     </ul>
                 <% } %>
+
+                   <% if(typeof requiredTestErrors !== 'undefined'){ %>
+                    <ul>
+                        <% requiredTestErrors.forEach((err,i) => { %>
+                            <li class="para error-li" ><%= err %></li>
+                        <% }) %>
+
+                    </ul>
+                <% } %>
+
+                    <% if(typeof optionalTestErrors !== 'undefined'){ %>
+                    <ul>
+                        <% optionalTestErrors.forEach(err => { %>
+                            <li class="para error-li" ><%= err %></li>
+                        <% }) %>
+
+                    </ul>
+                    <% } %>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="/auth/register">
                         <ul>
@@ -49,7 +68,7 @@
                             <label for="mobile" class="col-md-4 control-label">Enter Your Mobile Number</label>
 
                             <div class="col-md-6">
-                                <input id="mobile" type="mobile" class="form-control" name="mobile" required>
+                                <input id="mobile" type="number" class="form-control" name="mobile" required>
                             </div>
                         </div>
 
