@@ -40,25 +40,25 @@ html,body{
     white-space: nowrap;
     position: relative;
     font-size: 1em;
-    /* color: #869bee; */
+    /*
+        color: #869bee;
+    */
     color: #676767;
     margin: auto 1em;
     overflow: visible;
     text-decoration: none;
     font-weight: 600;
     padding: 0 1em;
+
+}
+.nav-link a:hover.submenu-resource{
+    display: block;
 }
 .menu-icon{
     display: none;
 }
 @media (max-width: 580px) {
-        #response-menu{
-            display: none;
-            background-color: white;
-        }
-        #response-menu.menu-open{
-            display: block;
-        }
+
         .menu-icon{
             width: 10%;
             float: right;
@@ -70,8 +70,9 @@ html,body{
 
         }
         .logo{
-           float: left;
-            width: 50%
+           float: none;
+            width: 50%;
+            margin: auto;
         }
 }
 

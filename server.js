@@ -112,12 +112,35 @@ app.get('/dashboard',isAuth,(req,res) => {
 app.get('/sellWithUs',(req,res) => {
   res.render('sellWithUs');
 })
-app.get('/store',(req,res) => {
+app.get('/sellWithUs/pricing',(req,res)=>{
+  res.render('sellWithUsContainer/pricing');
+})
+app.get('/sellWithUs/delivery',(req,res)=>{
+  res.render('sellWithUsContainer/deliveryinfo');
+})
+app.get('/sellWithUs/hiw',(req,res)=>{
+  res.render('sellWithUsContainer/howitworks');
+})
+app.get('/inventory',(req,res) => {
   res.render('store');
 })
-
 app.get('/advertise',(req,res) => {
-  res.render('advertise');
+  res.render('sellWithUsContainer/advertise')
+})
+app.get('/inventory/hiw',(req,res) => {
+  res.render('inventoryContainer/howitworks');
+})
+app.get('/inventory/pricing',(req,res) => {
+  res.render('inventoryContainer/pricing');
+})
+
+app.get('/sellWithUs/advertise',(req,res) => {
+  res.render('sellWithUsContainer/advertise');
+})
+
+
+app.get('/b2b',(req,res) =>{
+  res.render('service');
 })
 app.get('/faq',(req,res) => {
   res.render('faq');

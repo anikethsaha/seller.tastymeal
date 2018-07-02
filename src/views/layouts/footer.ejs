@@ -20,5 +20,12 @@ console.log("qwe");
 $('.menu-icon').click(e =>{
         $('#response-menu').toggleClass('menu-open');
 })
+$(window).scroll((e)=>{
+    if($(window).scrollTop() > 15 && $(window).innerWidth < 601 ){
+        $('.logo').hide();
+    }else{
+        $('.logo').show();
+    }
+})
 </script>
 </html>
